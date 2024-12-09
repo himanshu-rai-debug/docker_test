@@ -1,0 +1,17 @@
+
+<%= form_with model: @user, local: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: 'Enter Name' %>
+  
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.submit 'Create'%>
+<% end %>
