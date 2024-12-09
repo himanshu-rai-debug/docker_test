@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Ruby (if using Ruby, adjust for other languages as necessary)
+      # Step 2: Set up Ruby
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -24,16 +24,16 @@ jobs:
       - name: Install dependencies
         run: |
           gem install bundler
-          bundle install
+          bundle install  # Ensure rubocop is installed through Gemfile
 
-      # Step 4: Run validation (e.g., linting)
+      # Step 4: Run validation (RuboCop for code style validation)
       - name: Run RuboCop for code style validation
-        run: bundle exec rubocop
+        run: bundle exec rubocop  # This will now work if rubocop is correctly installed
 
       # Step 5: Run tests (e.g., using RSpec for Ruby, adjust for your testing framework)
       - name: Run tests
         run: |
-          bundle exec rspec # If using RSpec; replace with the appropriate test command for your stack
+          bundle exec rspec  # If using RSpec; replace with the appropriate test command for your stack
 
       # Step 6: Login to Docker Hub
       - name: Login to Docker Hub
