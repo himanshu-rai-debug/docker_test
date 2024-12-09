@@ -18,7 +18,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.0  # Adjust according to your Ruby version
+          ruby-version: 3.0.0  # Adjust according to your Ruby version
 
       # Step 3: Install dependencies (e.g., using bundler for Ruby)
       - name: Install dependencies
